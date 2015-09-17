@@ -1,11 +1,17 @@
+% include('header.tpl', title='View All Tasks')
+
 %#template to generate a HTML table from a list of tuples (or list of lists, or tuple of tuples or ...)
-<p>The open items are as follows:</p>
-<table border="1">
+<h4><i class="fa fa-database"></i> The open task items are as follows:</h4>
+<div class="panel panel-default">
 %for row in rows:
-  <tr>
-  %for col in row:
-    <td>{{col}}</td>
-  %end
-  </tr>
+  <div class="panel-body">
+    <ul>
+      %for col in row:
+        <li>{{col}}</li>
+        %end
+    </ul>
+  </div>
 %end
-</table>
+</div>
+
+% include('footer.tpl')

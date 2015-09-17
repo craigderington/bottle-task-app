@@ -15,7 +15,7 @@ def todo_list():
 
     conn = sqlite3.connect('mybottle/todo.db')
     c = conn.cursor()
-    c.execute("SELECT id, task FROM todo;")
+    c.execute("SELECT id, task FROM todo WHERE status LIKE '1';")
     result = c.fetchall()
     c.close()
 
@@ -41,6 +41,35 @@ def new_item():
 
     else:
         return template('new_task.tpl')
+
+@route('/edit/<no:int>', method='GET')
+def edit_item(no):
+
+    if request.GET.get('save','').split():
+        edit = request.GET.get('task', '').split()
+        status = request.GET.get('status', '').split()
+
+        if status == 'open':
+            status = 1
+        else:
+            status = 0
+
+        conn = sqlite3.connect('mybottle/todo.db')
+        c = conn.cursor()
+        c.execute("UPDATE todo SET task = ?, status = ? WHERE id = ?" % (edit, status, no))
+        conn.commit()
+        c.close()
+
+        return '<p>Task %s was successfully updated</p>' % no
+
+    else:
+        conn = sqlite3.connect('mybottle/todo.db')
+        c = conn.cursor()
+        c.execute("SELECT task from todo WHERE id LIKE ?", (str(no)))
+        cur_data = c.fetchone()
+
+        return template('edit_task.tpl', old=cur_data, no=no)
+
 
 @error(403)
 def mistake(code):
