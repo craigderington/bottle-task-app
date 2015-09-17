@@ -6,7 +6,10 @@
   <div class="form-group">
     <label class="label control-label" for="task">Task name</label>
     <input type="text" maxlength="100" name="task" class="form-control col-md-4">
+  </div>
+  <div class="form-group">
     <button type="submit" name="save" value="save" class="btn btn-md btn-primary"><i class="fa fa-save"></i> Save Task</button>
+    <a href="/todo" class="btn btn-default btn-md"><i class="fa fa-times-circle"></i> Cancel</a>
   </div>
 </form>
 
