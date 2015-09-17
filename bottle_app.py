@@ -1,6 +1,6 @@
 # A simple Bottle Hello World app for you to get started with...
 import sqlite3
-from bottle import default_app, route, template, request, debug, error
+from bottle import default_app, route, template, request, debug, error, redirect
 
 @route('/')
 def hello_world():
@@ -37,7 +37,7 @@ def new_item():
         conn.commit()
         c.close()
 
-        return '<p>The new task was inserted into the database.  The new ID is %s</p>' % new_id
+        redirect('/todo')
 
     else:
         return template('new_task.tpl')
