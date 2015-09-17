@@ -68,7 +68,7 @@ def edit_item(no):
         c.execute("SELECT task from todo WHERE id LIKE ?", (str(no)))
         cur_data = c.fetchone()
 
-        return template('edit_task.tpl', old=cur_data, no=no)
+        return template('edit_task.tpl', old = cur_data, no = no)
 
 
 @error(403)
