@@ -5,7 +5,7 @@
 <form action="/new_task" method="GET" class="form-inline">
   <div class="form-group">
     <label class="label control-label" for="task">Task name</label>
-    <input type="text" size="100" maxlength="100" name="task" class="form-control col-md-4">
+    <input type="text" maxlength="100" name="task" class="form-control col-md-4">
     <button type="submit" name="save" value="save" class="btn btn-md btn-primary"><i class="fa fa-save"></i> Save Task</button>
   </div>
 </form>
