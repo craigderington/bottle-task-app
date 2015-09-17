@@ -4,7 +4,7 @@ from bottle import default_app, route, template, request, debug, error
 
 @route('/')
 def hello_world():
-    return 'Hello from Bottle Homepage!'
+    return template('index.tpl')
 
 @route('/index')
 def index():

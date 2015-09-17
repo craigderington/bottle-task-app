@@ -3,7 +3,7 @@
 
 % include('header.tpl', title='Edit Task')
 
-      <h4><i class="fa fa-check-square"></i> Edit Task {{old[0]}}</h4>
+      <h4><i class="fa fa-check-square"></i> Edit Task</h4>
       <p>Edit the task with ID = {{no}}</p>
         <form action="/edit/{{no}}" method="get" class="form-horizontal">
           <div class="form-group">
